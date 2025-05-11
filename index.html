@@ -230,18 +230,17 @@
       c2.style.display = 'block';
     }
 
-    function checkAnswer(current) {
-      const syllables = [...current.name];
-      if (selectedFirst === syllables[0] && selectedSecond === syllables[1]) {
-        document.getElementById('message').textContent = '';
-        showCorrect();
-      } else {
-        document.getElementById('message').textContent = '틀렸습니다. 다시 시도해주세요.';
-        document.getElementById('answer-text').innerHTML = `
-          <div style="font-size: 1.5em; font-weight: bold;">정답: ${selectedFirst}${selectedSecond || 'O'}핑</div>
-        `;
-      }
-    }
+function checkAnswer(current) {
+  const syllables = [...current.name];
+  if (selectedFirst === syllables[0] && selectedSecond === syllables[1]) {
+    document.getElementById('message').textContent = '';
+    showCorrect();
+  } else {
+    document.getElementById('message').textContent = '틀렸습니다. 다시 시도해주세요.';
+    // ❌ 정답 표시 업데이트하지 않음 — 유지
+  }
+}
+
 
     function showCorrect() {
       const current = questions[currentIndex];
